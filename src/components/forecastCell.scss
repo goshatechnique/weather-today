@@ -1,0 +1,64 @@
+$backgroundMain: #e35d9a;
+$backgroundSecondary: #5d94cd;
+$fontColor: #e1e1e2;
+$mainColor: #310453;
+$dark: #2a2a2e;
+$dark2: #4a4a4a;
+$light: #dadadd;
+$light2: #c5c5c9;
+$special: #5f65af;
+$border: #3399ff;
+
+.weather-cell {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-family: "Gill Sans MT";
+  box-sizing: border-box;
+  &-weekday {
+    color: $dark;
+    font-size: 1.2em;
+    font-weight: 600;
+    font-family: "Gill Sans MT";
+  }
+  &-img {
+    width: 100px;
+    height: 100px;
+  }
+  &-temp {
+    color: $dark;
+    font-size: 1.2em;
+    font-weight: 600;
+    font-family: "Gill Sans MT";
+  }
+  &-cloudiness {
+    color: $dark;
+  }
+}
+
+.weather-cell-special-background {
+  background: none;
+}
+
+@media all and(max-width: 768px) {
+  .weather-cell {
+    padding: 20px;
+    border-right: 2px solid $special;
+  }
+  .weather-cell-special-background {
+    box-sizing: border-box;
+    border-left: 2px solid $special;
+    border-right: none;
+  }
+}
+
+@media all and(max-width: 460px) {
+  .weather-cell {
+    border-right: 4px solid $special;
+  }
+  .weather-cell-special-background {
+    border-left: 4px solid $special;
+    border-right: none;
+  }
+}

@@ -1,4 +1,6 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Application available at
+
+https://weather-today-0402f.firebaseapp.com/
 
 ## Available Scripts
 

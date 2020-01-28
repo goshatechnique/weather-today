@@ -1,0 +1,115 @@
+@import "./fonts/Roboto.css";
+// background: linear-gradient(to top, #4671d5, #ffd873);
+// background: linear-gradient(to top, #2e2f8c, #321565);
+
+$backgroundMain: #e35d9a;
+$backgroundSecondary: #5d94cd;
+$fontColor: #e1e1e2;
+$mainColor: #420472;
+$mainColor2: #580597;
+$weatherCellFont: "Gill Sans MT";
+
+$dark: #2a2a2e;
+$dark2: #4a4a4a;
+$light: #dadadd;
+$light2: #c5c5c9;
+$special: #5f65af;
+$border: #3399ff;
+
+* {
+  font-size: 20px;
+  font-family: "Roboto", sans-serif;
+  color: $fontColor;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background: linear-gradient(
+    to top left,
+    $backgroundMain,
+    $backgroundSecondary
+  );
+  background-repeat: no-repeat;
+  background-size: auto;
+  min-height: 100vh;
+}
+
+.weather-container {
+  display: grid;
+  grid-auto-rows: 60px 1fr;
+}
+
+.header {
+  background: $mainColor;
+  display: flex;
+  align-items: center;
+}
+
+.logo {
+  margin-left: 40px;
+  height: 50px;
+}
+
+.input-search {
+  margin-left: 20px;
+  padding-left: 5px;
+  font-size: 1em;
+  line-height: 1.2em;
+  height: 1.8em;
+  color: rgba($fontColor, 0.85%);
+  background: none;
+  width: 200px;
+  border: 1px solid $fontColor;
+  border-right: none;
+  box-sizing: border-box;
+}
+
+.search-button {
+  height: 1.8em;
+  width: 1.8em;
+  background: none;
+  color: $fontColor;
+  border: 1px solid $fontColor;
+  box-sizing: border-box;
+  border-left: none;
+  &:hover {
+    cursor: pointer;
+    text-shadow: 0px 0px 12px $fontColor;
+  }
+}
+
+.search-img {
+  width: 34px;
+  height: 34px;
+}
+
+.date {
+  font-size: 1.3em;
+  margin: 0 auto;
+}
+
+.weather-block {
+  display: flex;
+  justify-content: center;
+  margin-top: 100px;
+}
+
+@media all and(max-width: 460px) {
+  .logo {
+    margin-left: 10px;
+  }
+  .date {
+    font-size: 1.3em;
+    margin: 0 auto;
+  }
+}
+
+@media all and(max-width: 660px) {
+  .date {
+    font-size: 0.8em;
+    position: absolute;
+    top: 60px;
+    left: 33%;
+  }
+}

@@ -1,0 +1,9 @@
+.section-top-day {
+  background-image: url("../icons/day.png");
+  background-size: cover;
+  min-width: 300px;
+}
+.section-top-night {
+  background-image: URL("../icons/night.png");
+  background-size: cover;
+}
