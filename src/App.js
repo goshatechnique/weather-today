@@ -1,12 +1,12 @@
 import React, { useState } from "react";
 import Swal from "sweetalert2";
 import weather from "openweather-apis";
+import { transliterate } from "transliteration";
 
 import "./App.scss";
 import WeatherBlock from "./components/WeatherBlock";
 import { days, months, formattingData } from "./helpers";
 import logo from "./logo.png";
-import loupe from "./icons/loupe.png";
 import store from "./store";
 
 const getCurrentDate = () => {
@@ -26,11 +26,12 @@ const App = () => {
       if (!searchString) {
         throw new Error();
       }
-      store.dispatch({ type: "SET_SEARCH_STRING", payload: searchString });
+      let trSearchString = transliterate(searchString);
+      store.dispatch({ type: "SET_SEARCH_STRING", payload: trSearchString });
       store.dispatch({ type: "FETCH_WEATHER_FORECAST" });
       weather.setLang(navigator.language || navigator.userLanguage);
       weather.setUnits("metric");
-      weather.setCity(searchString);
+      weather.setCity(trSearchString);
       weather.setAPPID("57bac9399452758a7c23307c26350fdb");
       weather.getAllWeather(function(err, response) {
         const weatherData = formattingData(response);
@@ -51,20 +52,19 @@ const App = () => {
         <input
           className="input-search"
           type="text"
-          placeholder="city"
           onChange={e => {
             e.preventDefault();
             setSearchString(e.target.value);
           }}
         />
-        <div
+        <button
           onClick={() => {
             fetchWeather(searchString);
           }}
           className="search-button"
         >
-          <img className="search-img" src={loupe} alt="#" />
-        </div>
+          Search
+        </button>
         <div className="date">{getCurrentDate()}</div>
       </div>
       <WeatherBlock localTime={localTime} currentWeather={currentWeather} />

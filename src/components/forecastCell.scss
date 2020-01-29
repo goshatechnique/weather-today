@@ -15,6 +15,9 @@ $border: #3399ff;
   justify-content: center;
   align-items: center;
   font-family: "Gill Sans MT";
+  margin: 20px;
+  margin-left: 0;
+  margin-right: 0;
   box-sizing: border-box;
   &-weekday {
     color: $dark;
@@ -37,28 +40,39 @@ $border: #3399ff;
   }
 }
 
-.weather-cell-special-background {
-  background: none;
+.weather-cell-special-1 {
+  border-right: 3px solid $special;
+}
+
+.weather-cell-special-2 {
+  border-right: 3px solid $special;
+}
+
+.weather-cell-special-3 {
+  border-right: 3px solid $special;
 }
 
 @media all and(max-width: 768px) {
-  .weather-cell {
-    padding: 20px;
-    border-right: 2px solid $special;
-  }
-  .weather-cell-special-background {
-    box-sizing: border-box;
-    border-left: 2px solid $special;
+  .weather-cell-special-2 {
     border-right: none;
   }
 }
 
 @media all and(max-width: 460px) {
   .weather-cell {
-    border-right: 4px solid $special;
+    margin: 0;
+    padding: 10px;
   }
-  .weather-cell-special-background {
-    border-left: 4px solid $special;
+  .weather-cell-special-1 {
     border-right: none;
+    background: $light2;
+  }
+  .weather-cell-special-2 {
+    border-right: none;
+  }
+
+  .weather-cell-special-3 {
+    border-right: none;
+    background: $light2;
   }
 }

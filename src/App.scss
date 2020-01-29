@@ -1,6 +1,4 @@
 @import "./fonts/Roboto.css";
-// background: linear-gradient(to top, #4671d5, #ffd873);
-// background: linear-gradient(to top, #2e2f8c, #321565);
 
 $backgroundMain: #e35d9a;
 $backgroundSecondary: #5d94cd;
@@ -15,6 +13,7 @@ $light: #dadadd;
 $light2: #c5c5c9;
 $special: #5f65af;
 $border: #3399ff;
+$headerColor: #2c3e50;
 
 * {
   font-size: 20px;
@@ -41,7 +40,10 @@ body {
 }
 
 .header {
-  background: $mainColor;
+  background: #2b244d;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  box-shadow: 0px 0px 20px $dark;
   display: flex;
   align-items: center;
 }
@@ -57,25 +59,30 @@ body {
   font-size: 1em;
   line-height: 1.2em;
   height: 1.8em;
-  color: rgba($fontColor, 0.85%);
   background: none;
-  width: 200px;
-  border: 1px solid $fontColor;
-  border-right: none;
+  width: 180px;
+  border: 2px solid $fontColor;
+  border-radius: 4px;
   box-sizing: border-box;
+  transition: 0.3s;
+  &:hover {
+    border-bottom: 2px solid $special;
+  }
+  &:focus {
+    border-bottom: 2px solid $special;
+  }
 }
 
 .search-button {
+  border: none;
+  border-left: none;
   height: 1.8em;
   width: 1.8em;
   background: none;
-  color: $fontColor;
-  border: 1px solid $fontColor;
   box-sizing: border-box;
-  border-left: none;
   &:hover {
     cursor: pointer;
-    text-shadow: 0px 0px 12px $fontColor;
+    text-shadow: 0px 0px 12px $light;
   }
 }
 
@@ -107,9 +114,9 @@ body {
 
 @media all and(max-width: 660px) {
   .date {
-    font-size: 0.8em;
+    font-size: 1em;
     position: absolute;
     top: 60px;
-    left: 33%;
+    left: 25%;
   }
 }

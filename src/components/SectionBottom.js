@@ -21,9 +21,7 @@ const SectionBottom = () => {
       id++;
       return (
         <ForecastCell
-          specialBackground={
-            id % 2 === 0 ? "weather-cell-special-background" : ""
-          }
+          specialBackground={`weather-cell-special-${id}`}
           key={id}
           weekday={days[UTCdate].substr(0, 3)}
           img={`http://openweathermap.org/img/wn/${dayForecast.weather[0].icon}@2x.png`}

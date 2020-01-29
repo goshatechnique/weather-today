@@ -14,7 +14,7 @@ const WeatherBlock = ({ currentWeather, localTime }) => {
           <SectionBottom currentWeather={currentWeather} />
         </div>
       ) : (
-        <div className="search-helper">Search your city</div>
+        <div className="search-helper">Use the search</div>
       )}
     </div>
   );
