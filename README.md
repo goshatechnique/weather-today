@@ -2,7 +2,7 @@
 
 https://weather-today-0402f.firebaseapp.com/
 
-![alt text](https://ibb.co/k99X45R)
+![alt text](https://i.ibb.co/BrrBycX/weather-app-1.png)
 
 ## Learn More
 
