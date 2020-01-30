@@ -11,10 +11,11 @@ const SectionBottom = () => {
   if (store.getState().weatherForecastData !== null) {
     let data = [];
     let id = 0;
-    data.push(store.getState().weatherForecastData.list[8]);
-    data.push(store.getState().weatherForecastData.list[18]);
-    data.push(store.getState().weatherForecastData.list[28]);
-    data.push(store.getState().weatherForecastData.list[37]);
+    data.push(store.getState().weatherForecastData.list[9]);
+    data.push(store.getState().weatherForecastData.list[17]);
+    data.push(store.getState().weatherForecastData.list[25]);
+    data.push(store.getState().weatherForecastData.list[33]);
+    console.log(data);
     forecastArray = data.map(dayForecast => {
       const stringDate = dayForecast.dt_txt.substr(0, 10).toString();
       const date = new Date(stringDate);

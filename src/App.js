@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import Swal from "sweetalert2";
-import weather from "openweather-apis";
-import { transliterate } from "transliteration";
+import axios from "axios";
 
 import "./App.scss";
 import WeatherBlock from "./components/WeatherBlock";
@@ -21,25 +20,19 @@ const App = () => {
   const [searchString, setSearchString] = useState(null);
   const [currentWeather, setCurrentWeather] = useState(null);
 
-  const fetchWeather = searchString => {
+  const fetchWeather = async searchString => {
     try {
       if (!searchString) {
         throw new Error();
       }
-      let trSearchString = transliterate(searchString);
-      store.dispatch({ type: "SET_SEARCH_STRING", payload: trSearchString });
+      store.dispatch({ type: "SET_SEARCH_STRING", payload: searchString });
       store.dispatch({ type: "FETCH_WEATHER_FORECAST" });
-      weather.setLang(navigator.language || navigator.userLanguage);
-      weather.setUnits("metric");
-      weather.setCity(trSearchString);
-      weather.setAPPID("57bac9399452758a7c23307c26350fdb");
-      weather.getAllWeather(function(err, response) {
-        const weatherData = formattingData(response);
-        if (!weatherData) return;
-        const a = weatherData.timezone / 3600;
-        setLocalTime(new Date().getUTCHours() + a);
-        setCurrentWeather(weatherData);
-      });
+      const res = await axios.get(
+        `https://api.openweathermap.org/data/2.5/weather?q=${searchString}&appid=57bac9399452758a7c23307c26350fdb`
+      );
+      setCurrentWeather(formattingData(res.data));
+      const searchPlaceTime = res.data.timezone / 3600;
+      setLocalTime(new Date().getUTCHours() + searchPlaceTime);
     } catch (e) {
       Swal.fire("Enter city name.");
     }

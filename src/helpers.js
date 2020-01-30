@@ -32,7 +32,7 @@ export const formattingData = weatherData => {
       city: weatherData.name,
       country: weatherData.sys.country,
       coords: `${weatherData.coord.lon};${weatherData.coord.lat}`,
-      temp: weatherData.main.temp,
+      temp: Math.round(weatherData.main.temp - 273.15),
       temp_feels: weatherData.main.feels_like,
       wind_deg: weatherData.wind.deg,
       wind_speed: weatherData.wind.speed,
