@@ -10,7 +10,7 @@ import logo from "./logo.png";
 import store from "./store";
 
 const getCurrentDate = () => {
-  const weekday = days[new Date().getUTCMonth()];
+  const weekday = days[new Date().getUTCDay()];
   const monthDay = new Date().getUTCDate();
   const month = months[new Date().getUTCMonth()];
   return `${weekday}, ${monthDay} ${month}`;

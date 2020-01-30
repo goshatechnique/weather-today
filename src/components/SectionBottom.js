@@ -11,19 +11,22 @@ const SectionBottom = () => {
   if (store.getState().weatherForecastData !== null) {
     let data = [];
     let id = 0;
-    data.push(store.getState().weatherForecastData.list[15]);
-    data.push(store.getState().weatherForecastData.list[23]);
-    data.push(store.getState().weatherForecastData.list[31]);
-    data.push(store.getState().weatherForecastData.list[39]);
+    data.push(store.getState().weatherForecastData.list[8]);
+    data.push(store.getState().weatherForecastData.list[18]);
+    data.push(store.getState().weatherForecastData.list[28]);
+    data.push(store.getState().weatherForecastData.list[37]);
     forecastArray = data.map(dayForecast => {
       const stringDate = dayForecast.dt_txt.substr(0, 10).toString();
-      const UTCdate = new Date(stringDate).getUTCDay();
+      const date = new Date(stringDate);
+      const weekdayNumber = date.getDay();
+      const weekday = days[weekdayNumber];
+      console.log(weekday);
       id++;
       return (
         <ForecastCell
           specialBackground={`weather-cell-special-${id}`}
           key={id}
-          weekday={days[UTCdate].substr(0, 3)}
+          weekday={weekday.substr(0, 3)}
           img={`http://openweathermap.org/img/wn/${dayForecast.weather[0].icon}@2x.png`}
           temperature={Math.round(dayForecast.main.temp - 273)}
           cloudiness={dayForecast.weather[0].main}
