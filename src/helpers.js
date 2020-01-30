@@ -47,3 +47,9 @@ export const formattingData = weatherData => {
     Swal.fire(`Can't find it.`);
   }
 };
+
+export const createWeekdayFromDate = stringDate => {
+  const date = new Date(stringDate.substr(0, 10).toString());
+  const weekday = days[date.getDay()].substr(0, 3);
+  return weekday;
+};
